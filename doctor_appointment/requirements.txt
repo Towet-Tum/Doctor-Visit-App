@@ -1,0 +1,9 @@
+Django
+djangorestframework
+djangorestframework-simplejwt
+celery
+redis
+psycopg2-binary
+paypalrestsdk
+python-dotenv
+gunicorn

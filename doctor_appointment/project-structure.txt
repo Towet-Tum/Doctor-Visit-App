@@ -1,0 +1,54 @@
+doctor_appointment/
+├── manage.py
+├── doctor_appointment/            # Main project configuration folder
+│   ├── __init__.py
+│   ├── settings.py                # Global settings, including database, JWT, Celery, etc.
+│   ├── urls.py                    # URL router for the project
+│   ├── asgi.py                    # ASGI config (for async support)
+│   ├── wsgi.py                    # WSGI config (for production)
+│   └── celery.py                  # Celery app configuration
+├── accounts/                      # Handles user (doctor & patient) authentication & profiles
+│   ├── __init__.py
+│   ├── models.py                  # User models (extend AbstractUser or custom models)
+│   ├── serializers.py             # Serializers for user registration, login, etc.
+│   ├── views.py                   # API views for authentication and profile management
+│   ├── urls.py                    # URL patterns for accounts endpoints
+│   ├── permissions.py             # Custom permissions (e.g., role-based checks)
+│   └── tests.py                   # Unit tests for accounts
+├── appointments/                  # Manages appointment booking, cancellations, scheduling logic
+│   ├── __init__.py
+│   ├── models.py                  # Appointment, scheduling, and related models
+│   ├── serializers.py             # Data validation for appointment endpoints
+│   ├── views.py                   # API views for booking, canceling, rescheduling appointments
+│   ├── urls.py                    # URL patterns for appointments endpoints
+│   ├── tasks.py                   # Celery tasks (e.g., notify patients on availability)
+│   └── tests.py                   # Unit tests for appointments
+├── payments/                      # Handles payment processing via PayPal
+│   ├── __init__.py
+│   ├── models.py                  # Models for tracking payment transactions
+│   ├── serializers.py             # Serializers for payment data
+│   ├── views.py                   # API endpoints to initiate/process payments
+│   ├── urls.py                    # URL patterns for payments endpoints
+│   ├── tasks.py                   # Celery tasks for asynchronous payment confirmation handling
+│   └── tests.py                   # Unit tests for payments
+├── notifications/                 # Manages notifications (email/in-app) when appointment slots change
+│   ├── __init__.py
+│   ├── tasks.py                   # Celery tasks for sending notifications
+│   ├── utils.py                   # Helper functions for notifications (email templates, etc.)
+│   ├── views.py                   # Optional API views to trigger notifications manually
+│   ├── urls.py                    # URL patterns for notifications endpoints (if needed)
+│   └── tests.py                   # Unit tests for notifications
+├── core/                          # Shared utilities, middleware, or common models
+│   ├── __init__.py
+│   ├── utils.py                   # Utility functions used across apps
+│   ├── middleware.py              # Custom middleware (e.g., logging, JWT handling enhancements)
+│   ├── models.py                  # Common models or abstract base classes
+│   └── tests.py                   # Tests for core utilities
+├── requirements.txt               # Project dependencies
+├── README.md                      # Project documentation and setup instructions
+├── .env.example                   # Sample environment variable definitions
+├── Dockerfile                     # Dockerfile for containerizing the application
+├── docker-compose.yml             # Compose file to run Django, PostgreSQL, Redis, etc.
+└── .github/
+    └── workflows/
+        └── ci.yml               # GitHub Actions workflow for CI/CD (testing, linting, migrations)
